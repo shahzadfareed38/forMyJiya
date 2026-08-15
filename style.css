@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+
+    overflow: hidden;
+}
+
+.card {
+    width: 90%;
+    max-width: 500px;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 25px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+
+    position: relative;
+
+    z-index: 10;
+
+    animation: cardAppear 1s ease;
+}
+
+.heart {
+    font-size: 70px;
+
+    animation: heartbeat 1.2s infinite;
+}
+
+h1 {
+    margin: 15px 0;
+
+    color: #ff477e;
+
+    font-size: 32px;
+}
+
+.subtitle {
+    color: #666;
+
+    margin-bottom: 25px;
+
+    font-size: 18px;
+}
+
+button {
+    border: none;
+
+    padding: 15px 25px;
+
+    border-radius: 30px;
+
+    background: #ff477e;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e9366b;
+
+    transform: scale(1.05);
+}
+
+#message {
+    margin-top: 30px;
+
+    animation: messageAppear 1s ease;
+}
+
+#message h2 {
+    color: #ff477e;
+
+    margin-bottom: 15px;
+}
+
+#message p {
+    color: #555;
+
+    line-height: 1.7;
+
+    font-size: 17px;
+}
+
+.love {
+    margin-top: 15px;
+
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Floating hearts */
+
+.floating-heart {
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    animation: floatUp 5s linear forwards;
+
+    pointer-events: none;
+}
+
+/* Animations */
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatUp {
+
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .heart {
+        font-size: 55px;
+    }
+}
