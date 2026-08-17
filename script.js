@@ -1,53 +1,41 @@
-const button = document.getElementById("wishButton");
-const message = document.getElementById("message");
-const heartsContainer = document.getElementById("hearts");
+function showLove() {
 
-button.addEventListener("click", function () {
+    const surprise = document.getElementById("surprise");
 
-    // Show message
-    message.classList.remove("hidden");
+    surprise.innerHTML =
+        "I LOVE YOU ❤️🥺<br>Ab maan bhi jao meri jaan! 💕";
 
-    // Change button text
-    button.textContent = "❤️ Wish Opened ❤️";
-
-    // Disable button
-    button.disabled = true;
-
-    // Create floating hearts
-    createHearts();
-});
-
-
-function createHearts() {
-
-    for (let i = 0; i < 30; i++) {
-
-        const heart = document.createElement("div");
-
-        heart.classList.add("floating-heart");
-
-        heart.textContent = "❤️";
-
-        // Random horizontal position
-        heart.style.left = Math.random() * 100 + "vw";
-
-        // Random size
-        heart.style.fontSize =
-            (15 + Math.random() * 25) + "px";
-
-        // Random animation duration
-        heart.style.animationDuration =
-            (3 + Math.random() * 4) + "s";
-
-        // Random delay
-        heart.style.animationDelay =
-            Math.random() * 2 + "s";
-
-        heartsContainer.appendChild(heart);
-
-        // Remove heart after animation
-        setTimeout(() => {
-            heart.remove();
-        }, 7000);
+    // Extra hearts
+    for (let i = 0; i < 20; i++) {
+        createHeart();
     }
 }
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("floating-heart");
+
+    heart.innerHTML = Math.random() > 0.5 ? "❤️" : "💕";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 30) + "px";
+
+    heart.style.animationDuration =
+        (3 + Math.random() * 4) + "s";
+
+    document
+        .getElementById("hearts-container")
+        .appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 7000);
+}
+
+
+// Automatically create floating hearts
+setInterval(createHeart, 700);

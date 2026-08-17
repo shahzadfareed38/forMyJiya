@@ -6,194 +6,148 @@
 
 body {
     min-height: 100vh;
+    background: linear-gradient(135deg, #120014, #3b003d, #150018);
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-family: Arial, sans-serif;
-
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-
     overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
 }
 
-.card {
-    width: 90%;
-    max-width: 500px;
-
-    padding: 40px 30px;
-
+.container {
     text-align: center;
-
-    background: rgba(255, 255, 255, 0.95);
-
-    border-radius: 25px;
-
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-
+    padding: 30px;
     position: relative;
-
     z-index: 10;
-
-    animation: cardAppear 1s ease;
 }
 
 .heart {
-    font-size: 70px;
-
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     animation: heartbeat 1.2s infinite;
+    filter: drop-shadow(0 0 25px #ff1744);
+}
+
+.heart span {
+    font-size: 120px;
 }
 
 h1 {
-    margin: 15px 0;
-
-    color: #ff477e;
-
-    font-size: 32px;
+    font-size: 55px;
+    margin-top: 20px;
+    text-shadow: 0 0 20px #ff1744;
+    animation: glow 2s infinite alternate;
 }
 
-.subtitle {
-    color: #666;
+.message {
+    margin-top: 20px;
+    font-size: 22px;
+}
 
-    margin-bottom: 25px;
-
+.sorry {
+    margin-top: 15px;
     font-size: 18px;
+    line-height: 1.7;
+    color: #ffd6df;
 }
 
 button {
+    margin-top: 30px;
+    padding: 14px 30px;
     border: none;
-
-    padding: 15px 25px;
-
     border-radius: 30px;
-
-    background: #ff477e;
-
+    background: #ff1744;
     color: white;
-
-    font-size: 16px;
-
+    font-size: 18px;
     cursor: pointer;
-
+    box-shadow: 0 0 20px #ff1744;
     transition: 0.3s;
 }
 
 button:hover {
-    background: #e9366b;
-
-    transform: scale(1.05);
+    transform: scale(1.1);
+    background: #ff4569;
 }
 
-#message {
-    margin-top: 30px;
-
-    animation: messageAppear 1s ease;
-}
-
-#message h2 {
-    color: #ff477e;
-
-    margin-bottom: 15px;
-}
-
-#message p {
-    color: #555;
-
-    line-height: 1.7;
-
-    font-size: 17px;
-}
-
-.love {
-    margin-top: 15px;
-
+#surprise {
+    margin-top: 25px;
+    font-size: 25px;
     font-weight: bold;
+    color: #ffb6c1;
 }
-
-.hidden {
-    display: none;
-}
-
-/* Floating hearts */
 
 .floating-heart {
     position: absolute;
-
     bottom: -50px;
-
     font-size: 25px;
-
     animation: floatUp 5s linear forwards;
-
     pointer-events: none;
 }
 
-/* Animations */
-
 @keyframes heartbeat {
-
-    0%,
-    100% {
+    0% {
         transform: scale(1);
     }
 
-    50% {
+    15% {
         transform: scale(1.2);
     }
-}
 
-@keyframes cardAppear {
-
-    from {
-        opacity: 0;
-        transform: scale(0.7);
+    30% {
+        transform: scale(1);
     }
 
-    to {
-        opacity: 1;
+    45% {
+        transform: scale(1.2);
+    }
+
+    60% {
         transform: scale(1);
     }
 }
 
-@keyframes messageAppear {
-
+@keyframes glow {
     from {
-        opacity: 0;
-        transform: translateY(30px);
+        text-shadow: 0 0 10px #ff1744;
     }
 
     to {
-        opacity: 1;
-        transform: translateY(0);
+        text-shadow: 0 0 35px #ff1744;
     }
 }
 
 @keyframes floatUp {
-
-    from {
+    0% {
         transform: translateY(0) rotate(0deg);
         opacity: 1;
     }
 
-    to {
+    100% {
         transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
     }
 }
 
-/* Mobile */
-
-@media (max-width: 500px) {
-
-    .card {
-        padding: 30px 20px;
-    }
+@media (max-width: 600px) {
 
     h1 {
-        font-size: 26px;
+        font-size: 40px;
     }
 
-    .heart {
-        font-size: 55px;
+    .heart span {
+        font-size: 90px;
+    }
+
+    .message {
+        font-size: 18px;
+    }
+
+    .sorry {
+        font-size: 16px;
     }
 }
